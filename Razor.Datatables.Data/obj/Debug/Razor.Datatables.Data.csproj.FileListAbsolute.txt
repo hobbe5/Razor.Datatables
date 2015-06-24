@@ -1,0 +1,10 @@
+C:\Users\JC\Documents\GitHub\Razor.Datatables\Razor.Datatables.Data\obj\Debug\Razor.Datatables.Data.csprojResolveAssemblyReference.cache
+C:\Users\JC\Documents\GitHub\Razor.Datatables\Razor.Datatables.Data\bin\Debug\Razor.Datatables.Data.dll.config
+C:\Users\JC\Documents\GitHub\Razor.Datatables\Razor.Datatables.Data\bin\Debug\Razor.Datatables.Data.dll
+C:\Users\JC\Documents\GitHub\Razor.Datatables\Razor.Datatables.Data\bin\Debug\Razor.Datatables.Data.pdb
+C:\Users\JC\Documents\GitHub\Razor.Datatables\Razor.Datatables.Data\bin\Debug\EntityFramework.dll
+C:\Users\JC\Documents\GitHub\Razor.Datatables\Razor.Datatables.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\JC\Documents\GitHub\Razor.Datatables\Razor.Datatables.Data\bin\Debug\EntityFramework.xml
+C:\Users\JC\Documents\GitHub\Razor.Datatables\Razor.Datatables.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\JC\Documents\GitHub\Razor.Datatables\Razor.Datatables.Data\obj\Debug\Razor.Datatables.Data.dll
+C:\Users\JC\Documents\GitHub\Razor.Datatables\Razor.Datatables.Data\obj\Debug\Razor.Datatables.Data.pdb

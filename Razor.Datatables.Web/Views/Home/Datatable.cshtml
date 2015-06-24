@@ -1,0 +1,86 @@
+﻿@model Razor.Datatables.Web.Models.SearchModel
+
+@{
+    ViewBag.Title = "Datatable";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Datatable</h2>
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { name = "frmSearch", id = "frmSearch", @class = "form-horizontal", role = "form" }))
+{
+    <div class="row">
+        <div class="col-sm-2">
+            Admin User: @Html.CheckBoxFor(m => m.Admin)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-2">Search Name:</div> 
+        <div class="col-sm-2">
+            @Html.TextBoxFor(m => m.SearchName)
+        </div>
+        <input id="submit" type="submit" name="Action" class="btn btn-primary col-sm-2" value="Search">
+    </div>
+
+    if (string.IsNullOrWhiteSpace(Model.JsonResults) == false)
+    {
+        <div id="resultDiv" class="panel-body">
+            <table id="results" class="display table-shrink" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th>&nbsp;</th>
+                        <th>Name</th>
+                        <th>Credit</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    }
+}
+
+@section scripts
+{
+    <script type="text/javascript" src="~/Content/media/js/TableTools.js"></script>
+    <script type="text/javascript">
+        function shouldExport(dt) {
+            var cols = [];
+            for (i = 0; i < dt.aoColumns.length; i++) {
+                if (dt.aoColumns[i].sTitle != "" && dt.aoColumns[i].sTitle != "&nbsp;") cols.push(i);
+            }
+            return cols;
+        };
+
+        $(function () {
+            var columnDefs = [{
+                "aTargets": [0],
+                "mRender" : function (data, type, row) {
+                    var link = '@Html.ActionLink("Edit", "Edit", new { id = "val1" })';
+                    return link.replace("val1", row[0]);                    
+                }
+            }];
+            $('#results').DataTable({
+                dom: 'T<"clear">lfrtip',
+                "bServerSide": false,
+                "bDeferRender": true,
+                "oTableTools": {
+                    "sSwfPath": "../Content/media/swf/copy_csv_xls_pdf.swf",
+                    "aButtons": [
+                        {
+                            "sExtends": "xls",
+                            "sButtonText": "XLS",
+                            "mColumns": shouldExport
+                        }
+                    ]
+                },
+                "aoColumnDefs": columnDefs,
+                "aaData": @(string.IsNullOrEmpty(Model.JsonResults) == false ? Html.Raw(Model.JsonResults) : new HtmlString("[]")),
+                stateSave: true
+            });
+        });
+
+        $("#frmSearch").submit(function (e) {
+            var oTable = $('#results').dataTable();
+            oTable.fnPageChange('first', true);
+        });
+    </script>
+}
