@@ -1,0 +1,78 @@
+﻿@model Razor.Datatables.Data.Person
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    @using (Html.BeginForm(null, null, FormMethod.Post, new { name = "frmEdit", id = "frmEdit", @class = "form-horizontal", role = "form" }))
+    { 
+        <h1>Edit Person</h1>
+        <hr>
+        <div class="row">
+            <!-- edit form column -->
+            <div class="col-md-12 personal-info">
+                <h3>Personal info</h3>
+
+                <form class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">First name:</label>
+                        <div class="col-lg-8">
+                            @Html.TextBoxFor(m => m.FirstName)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Last name:</label>
+                        <div class="col-lg-8">
+                            @Html.TextBoxFor(m => m.LastName)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Person Type:</label>
+                        <div class="col-lg-8">
+                            @Html.TextBoxFor(m => m.PersonType)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Email:</label>
+                        <div class="col-lg-8">
+                            @Html.TextBoxFor(m => m.EmailAddresses.First().EmailAddress1)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label"><input type="button" id="addAnother" value="Add Another" /> Credit Cards:</label>
+                        @Html.EditorFor(m => m.PersonCreditCards);     
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Username:</label>
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(m => m.Employee.LoginID)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Password:</label>
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(m => m.Password.PasswordHash)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label"></label>
+                        <div class="col-md-8">
+                            <input type="button" class="btn btn-primary" name="Action" value="Save Changes">
+                            <span></span>
+                            <input type="button" class="btn btn-default" name="Action" value="Cancel">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    }
+</div>
+<script type="text/javascript">
+    $('#addAnother').click(function () {
+        $.get(window.location.protocol + "//" + window.location.host + "/Home/AddCreditCard/", "", function (data) {
+            $('.cardInfo').last().after(data);
+        });
+    });
+</script>

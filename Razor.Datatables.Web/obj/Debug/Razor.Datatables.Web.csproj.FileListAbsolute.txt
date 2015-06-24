@@ -55,3 +55,4 @@ C:\Users\JC\Documents\GitHub\Razor.Datatables\Razor.Datatables.Web\bin\Microsoft
 C:\Users\JC\Documents\GitHub\Razor.Datatables\Razor.Datatables.Web\obj\Debug\Razor.Datatables.Web.csprojResolveAssemblyReference.cache
 C:\Users\JC\Documents\GitHub\Razor.Datatables\Razor.Datatables.Web\obj\Debug\Razor.Datatables.Web.dll
 C:\Users\JC\Documents\GitHub\Razor.Datatables\Razor.Datatables.Web\obj\Debug\Razor.Datatables.Web.pdb
+C:\Users\JC\Documents\GitHub\Razor.Datatables\Razor.Datatables.Web\bin\BeginCollectionItem.dll

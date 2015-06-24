@@ -61,5 +61,28 @@ namespace Razor.Datatables.Web.Controllers
             }
             return View(model);
         }
+
+        public ActionResult Edit(Guid id)
+        {
+            var person = _personData.GetPersonById(id);
+            return View(person);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(Razor.Datatables.Data.Person person, string Action)
+        {
+            switch (Action)
+            {
+                case "Cancel":
+                    return RedirectToAction("Datatable");                    
+            }
+            return View(person);
+        }
+
+        [HttpGet]
+        public ActionResult AddCreditCard()
+        {
+            return PartialView("~/Views/Home/EditorTemplates/PersonCreditCard.cshtml", new PersonCreditCard { ModifiedDate = DateTime.Now });
+        }
     }
 }

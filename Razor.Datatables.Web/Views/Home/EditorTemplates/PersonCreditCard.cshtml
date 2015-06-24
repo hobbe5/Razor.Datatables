@@ -1,0 +1,16 @@
+﻿@model Razor.Datatables.Data.PersonCreditCard
+
+@using (Html.BeginCollectionItem("PersonCreditCard"))
+{
+    <div class="col-lg-10 cardInfo">
+        <div class="col-sm-4">
+            @Html.TextBoxFor(m => m.CreditCard.CardType)
+        </div>
+        <div class="col-sm-4">
+            @Html.TextBoxFor(m => m.CreditCard.CardNumber)
+        </div>
+        <div class="col-sm-2">
+            @Model.ModifiedDate.ToString("MM/dd/yyyy")
+        </div>
+    </div>
+}
