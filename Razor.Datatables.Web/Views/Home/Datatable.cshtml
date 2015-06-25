@@ -55,7 +55,7 @@
                 "aTargets": [0],
                 "mRender" : function (data, type, row) {
                     var link = '@Html.ActionLink("Edit", "Edit", new { id = "val1" })';
-                    return link.replace("val1", row[0]);                    
+                    return link.replace("val1", row[0]);       
                 }
             }];
             $('#results').DataTable({
